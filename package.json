@@ -1,0 +1,11 @@
+{
+  "name": "grail-watch",
+  "version": "1.0.0",
+  "description": "GrailWatch notifies Grailed users when new items that match their saved filters are added to Grailed's marketplace.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brandon Smith",
+  "license": "ISC"
+}
