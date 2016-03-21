@@ -19,16 +19,24 @@ function stringifyNumbers(num) {
 function getDesigners() {
   request(DESIGNERS_URL, function (err, res, body) {
       if(!err) {
-        console.log('What we really got was: ' +
-          JSON.stringify(body, null, 4));
+        var parsedResponse = JSON.parse(body);
+        var data = JSON.stringify(parsedResponse['data'], null, 4);
+        console.log('Data: ' + data);
       } else {
         console.log('Aw shit. Error: ' + err);
       }
     }
   );
 }
-app.get('/', getDesigners);
 
-app.listen(3000, function() {
-  console.log('We out here on port 3000!');
+app.get('/', function(req, res) {
+  res.status(200).send('Ok');
+  getDesigners();
 });
+
+var server = app.listen(3000, function() {
+  var port = server.address().port;
+  console.log('We out here on port %s!', port);
+});
+
+module.exports = server;
