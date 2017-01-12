@@ -30,8 +30,7 @@ function getDesigners() {
 }
 
 app.get('/', function(req, res) {
-  res.status(200).send('Ok');
-  getDesigners();
+  res.status(200).sendFile('index.html', { root: __dirname });
 });
 
 var server = app.listen(3000, function() {
